@@ -1,0 +1,10 @@
+library(xml2)
+library(rvest)
+weburl1<-"https://e-service.cwb.gov.tw/HistoryDataQuery/MonthDataController.do?command=viewMain&station="
+weburl2<-"466950"
+weburl3<-"&stname=%25E5%25BD%25AD%25E4%25BD%25B3%25E5%25B6%25BC&datepicker="
+weburl4<-"2019"
+weburl5<-"06"
+webcontent<-read_html(paste0(weburl1,weburl2,weburl3,weburl4,"-",weburl5))
+webtable<-html_table(webcontent)
+webtable<-webtable[[2]][28:30]
